@@ -5,6 +5,7 @@ import { NavigationButton } from './NavigationButton'
 import { findSource } from './utils';
 import { ErrorBoundary } from "react-error-boundary";
 import { fallbackRender } from "./FallbackRender"
+import { MoonLoader } from 'react-spinners';
 
 export function Kustomization(props) {
   const { capacitorClient, item, fluxState, targetReference, handleNavigationSelect } = props;
@@ -75,11 +76,16 @@ export function Kustomization(props) {
         >
           {item.spec.suspend ? "Resume" : "Suspend"}
         </button>
-        <button className="bg-transparent hover:bg-neutral-100 font-medium text-sm text-neutral-700 py-1 px-2 border border-neutral-300 rounded"
-          onClick={() => capacitorClient.reconcile("kustomization", item.metadata.namespace, item.metadata.name)}
-        >
-          Reconcile
-        </button>
+        <div className="flex">
+          <button className="flex-1 bg-transparent hover:bg-neutral-100 font-medium text-sm text-neutral-700 py-1 px-2 border border-neutral-300 rounded"
+            onClick={() => capacitorClient.reconcile("kustomization", item.metadata.namespace, item.metadata.name)}
+          >
+              Reconcile
+              <div class="mr-3 size-5 animate-spin" style={{ borderRadius: '50%', height: 20, width: 20, borderWidth: 1 }} >
+                
+              </div>
+          </button>
+          </div>
       </div>
     </div>
   )
