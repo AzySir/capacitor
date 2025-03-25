@@ -23,7 +23,7 @@ export function Sources(props) {
   return (
     <div className="space-y-4">
       <FilterBar
-        properties={["Name", "Namespace", "Errors"]}
+        properties={["Name", "Namespace", "Errors", "Kind"]}
         filters={filters}
         change={setFilters}
       />
