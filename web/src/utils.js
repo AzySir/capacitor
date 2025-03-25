@@ -58,6 +58,10 @@ export function filterResources(resources, filters) {
           }
         })
         break;
+      
+      case 'Kind':
+        filteredResources = filteredResources.filter(resource => resource.kind.includes(filter.value))
+        break;
       default:
     }
   })

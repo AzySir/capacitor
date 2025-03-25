@@ -34,7 +34,7 @@ export function Sources({ capacitorClient, fluxState, targetReference, handleNav
   return (
     <div className="space-y-4">
       <FilterBar
-        properties={["Name", "Namespace", "Errors"]}
+        properties={["Name", "Namespace", "Errors", "Kind"]}
         filters={filters}
         change={setFilters}
       />
